@@ -15,6 +15,10 @@ function Garage() {
         { brand: "Tesla" , color: "Black"},
     ];
 
+    const numberList = [
+      1,2,3,3,4,5,6,6
+    ];
+
     const showCarInfo = carInfo.brand !== undefined && carInfo.color !== undefined;
     return (
       <>
@@ -25,7 +29,10 @@ function Garage() {
         <Gun/>
         {isDoorOpened?<h2>Garage door is open</h2>:<h2>Garage door is Closed</h2>}
         <ul>
-            { carList.map((carInfo) => <li ><Car carInfo={carInfo} /></li>) }
+            { carList.map((carInfo) => <li key={carInfo.brand}><Car carInfo={carInfo} /></li>) }
+        </ul>
+        <ul>
+            {numberList.map((e,index) => <p key={index}>{e}</p>)}
         </ul>
       </>
     )
